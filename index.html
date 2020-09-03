@@ -8,6 +8,8 @@
     
 </head>
 <body>
+    
+   <main>
     que es flask
 
     flask es en pocas palabras un micro framework que entre sus muchas ventajas es que posee una curva de aprendizaje baja, no posee tantas herramientas y librerías precargadas, mejor aún uno va a decidir que herramientas usar y cuáles no, y su adaptación a proyectos es mucho más sencilla pidiendo crear paginas profesionales o proyectos grandes. No por ser un micro framework nos limitara a tareas sencillas.
@@ -28,141 +30,210 @@
      Si no arroja ningún error quiere decir que tendremos instalado el paquete de flask.
     Ahora aremos nuestro primer hola mundo de flask. para crear nuestro primer proyecto.
     Cerramos el entorno de Python y creamos una nueva carpeta donde crearemos nuestro primer proyecto, ahora creamos un archivo con el nombre HolaMundoFalsk.py y dentro escribiremos en siguiente código.
-    >>Import flask  from Flask 
-     >> app = Flask(__name__)   #instanciamos la siguiente clase.
-    @app.route(‘/’)
-    def index():
-        Return ‘Hola Mundo ’
-    >>app.run()
-    
+    <code>
+        Import flask  from Flask 
+        app = Flask(__name__)   #instanciamos la siguiente clase.
+        @app.route(‘/’)
+        def index():
+           Return ‘Hola Mundo ’
+        app.run()
+       
+    </code>
+   
     En el siguiente código importamos la librería flask, posteriormente instanciamos un objetos desde la clase Flask mesta lleva por defecto el parametro __name__ , y al instanciarla con la variable app. Esta variable app se convierte en un objeto de la clase flask y tendrá todos los métodos de la librería, a continuación usaremos un decorador (@) para reescribir una función de la librería en este caso route , se realiza esta reescritura de método para asignarle rutas a la llamada del navegador asignándole (‘/’) como dirección, de lo contrario no tendría ninguna ruta y no saldría nada en nuestro navegador.  Y dentro rescribimos el nuevo método lo que retornara en pantalla.
     Posteriormente escribimos el método run de la librería de flask para activar un mini servidos, finalizamos guardando los cambios en el archivo. Ejecutamos el archivo HolaMundoFalsk.py y en nuestro navegado ejecutamos , por defecto flask activa el servidor en el puerto 5000 .
     
     Como inicializar el servidor
     
     Continuando con la información anterior. nuestro servidor se inicializa con el método run o como se vio en el código 
-    >> app.run()
+    <code>
+        app.run()
+    </code>
+    
     Esto ejecuta el server que se inicia en el puerto 5000 por defecto. Nosotros podemos cambiar el puerto por otro al que queremos utilizar, en este caso escribiendo en los parámetros del método la siguiente notación 
-    >>app.run(port = [nuevo_puerto])  # colocaremos 6000 para ejemplos
+    
+    <code>
+        app.run(port = [nuevo_puerto])  # colocaremos 6000 para ejemplos
+    </code>
+    
     Se recomienda colocar puertos validos desde el 1600 en adelante, los puestos anteriores están ocupados por otros servicios. Colocamos en nuestro navegador localhost:6000 y veremos la salida de “Hola mundo”
     Otra opción que tendremos para poder ir desarrollando es colocar un modo de escucha del servidor para que los cambio se realicen de forma inmediata cuando se realiza algún cambios en los archivos. Este es el modo debug y lo activaremos de la siguiente forma.
-    >>app.run(debug = True , port = 6000)
+
+    <code>
+        app.run(debug = True , port = 6000)
+    </code>
+    
     La ventaja de tener este modo activo es que no es necesario activa y desactivar el servidor cada vez que se realice un cambio en el archivo.
     Agregaremos por convención y buenas practicas la siguiente línea para que el código que Python esté al tanto de si se carga el código sin errores pueda ejecutar el código.
+    
+    <code>
+        If __name__ == ‘_main_’:
+    </code>
+       
+
+        Nos quedario el condigo de la siguiente forma.
+
+<code>
+    Import flask  from Flask 
+    app = Flask(__name__)   #instanciamos la siguiente clase.
+    @app.route(‘/’)
+    def index():
+        Return ‘Hola Mundo ’
     If __name__ == ‘_main_’:
-    Nos quedario el condigo de la siguiente forma.
-    >>Import flask  from Flask 
-     >> app = Flask(__name__)   #instanciamos la siguiente clase.
-    >>@app.route(‘/’)
-    >>def index():
-    >>	Return ‘Hola Mundo ’
-    >>If __name__ == ‘_main_’:
-    >>	app.run(debug = True , port = 6000)
+    app.run(debug = True , port = 6000)
+</code>
+ 
+
+  
     
     Rutas y Parámetros
     
+
     Como vimos en el código anterior solo tenemos una única ruta (‘/’) . pero como todo proyecto necesitaremos más rutas. podremos agregar tantas rutas como necesitemos, ejemplo
-    >>@app.route(‘/’)
-    >>Def index():
-    >>	Return ‘Hola Mundo ’
-    >>@app.route(‘/Hola’)       # ruta nuevas 
-    >>Def Hola():
-    >>	Return ‘nuevos Hola mundo  ’
+    
+    <code>
+        @app.route(‘/’)
+        Def index():
+        	Return ‘Hola Mundo ’
+        
+        @app.route(‘/Hola’)       # ruta nuevas 
+        Def Hola():
+            Return ‘nuevos Hola mundo  ’
+
+    </code>
+  
     Podremos hacer tantas rutas como queramos, cada ruta debe tener su métodos respectiva, nunca debemos repetir el nombre de los métodos
     En las rutas podemos recibir parámetros ya sea cuando ágamos una petición o llenemos un formulario entre otras situaciones, para esto debemos importar la librería request
-    >>from flask import request
+    
+    <code>
+        from flask import request
+    </code>
+  
     y agregar en el método la variable que va a recibir el parámetro por el método.
     ejemplo:
-    >>@app.route(‘/Hola’)       # ruta nuevas 
-    >>def Hola():	  # localhot:6000/Hola?param=(parametros)
-    >>	param = request.args.get(‘parametro1’, ‘no tiene parametros’)
-    >>	Return ‘El parámetro pasado es {}’.formt(param)
+
+    <code>
+    @app.route(‘/Hola’)       # ruta nuevas 
+    def Hola():	  # localhot:6000/Hola?param=(parametros)
+    	param = request.args.get(‘parametro1’, ‘no tiene parametros’)
+    	Return ‘El parámetro pasado es {}’.formt(param)
+    </code>
+
     Como se puede observar al llamar a una ruta va a recibir una consulta de método donde obtendrá en este caso un parámetro llamado ‘paramatro1’ el cual su valor se alojara en la variable param y al retornar un valor saldrá en pantalla del navegador “El parámetro pasado es (parametros) ”
     De lo contrario al no recibir algún parámetro mostrara en pantalla por defecto “El parámetro pasado es no tiene parámetros” 
     Para agregar mas parámetros solo hay que agregar otras capturas de parámetros con el nombre de la variable. Ejemplo .
-    >>	param_2= request.args.get(‘parametro2’, ‘no tiene parametros’)
+   <code>
+    	param_2= request.args.get(‘parametro2’, ‘no tiene parametros’)
+   </code>
+    
     Y podremos hacer una prueba mandando la información desde el navegador y modificando la ruta de la siguiente manera. Ejemplo 
-    >>@app.route(‘/Hola’)     
-    >>def Hola():	  
-    >>	param = request.args.get(‘parametro1’, ‘no tiene parametros’) # parámetro 1
-    >>	param_2= request.args.get(‘parametro2’, ‘no tiene parametros’) # parametro2
-    >>	Return ‘El parámetro pasado es {} y el segundo parámetro es {} ’.formt(param, param_2)
     
-    http://localhost:6000/Hola? parametro1 =Paquita_ &parametro2=La_del_barrio
+    <code>
+    @app.route(‘/Hola’)     
+    def Hola():	  
+    	param = request.args.get(‘parametro1’, ‘no tiene parametros’) # parámetro 1
+    	param_2= request.args.get(‘parametro2’, ‘no tiene parametros’) # parametro2
+    	Return ‘El parámetro pasado es {} y el segundo parámetro es {} ’.formt(param, param_2)
+    </code>
+    
     las variables están separadas por el ‘&’
-    
+
+    <code>
+        http://localhost:6000/Hola? parametro1 =Paquita_ &parametro2=La_del_barrio
+    </code>
+       
     Validación de Rutas 
     
     Ya vimos como recibir parámetros, pero hay otra forma de recibir parámetros en una ruta completa sin el uso del símbolo ? en la llamada al navegador,  y es por medio de una ruta directa . ejemplo
-    http://localhost:6000/Hola/variable1/variable2
+    
+    <code>
+        http://localhost:6000/Hola/variable1/variable2
+    </code>
+   
     para poder lograr eso debemos modificar la función decoradora ejemplo.
     
-    >>Import flask  from Flask 
-    >>from flask import request
-     >> app = Flask(__name__)   
-    
-    >>@app.route(‘/Hola/’) 
-    >>@app.route(‘/Hola/<nombre>/’)     
-    >>@app.route(‘/Hola/<nombre>/<apellido>’)     
-    >>def Hola( nombre=’valor por defecto’,apellido=`otro valor por defecto`):
-    >>	return ‘El parámetro es : {}  {}’. Format (nombre , apellido)	  
-    >>If __name__ == ‘_main_’:
-    >>	app.run(debug = True , port = 6000)
-    
+    <code>
+        Import flask  from Flask 
+        from flask import request
+        app = Flask(__name__)   
+        
+        @app.route(‘/Hola/’) 
+        @app.route(‘/Hola/<nombre>/’)     
+        @app.route(‘/Hola/<nombre>/<apellido>’)     
+            def Hola( nombre=’valor por defecto’,apellido=`otro valor por defecto`):
+        	return ‘El parámetro es : {}  {}’. Format (nombre , apellido)	  
+        If __name__ == ‘_main_’:
+        	app.run(debug = True , port = 6000)
+        
+    </code>
+ 
     Esto nos dará una respuesta del servidor .
     
     Pero tendremos un inconveniente ya que solos recibe string , para trabajar con numero deberemos parsear las variables de entrada pero es muy probable que esto nos cause error. Para esto se puede solucionar indicando que tipo de variable va a recibir como parámetro esto se logra colocando  en la definición de parámetros que tipo recibe ejemplo
     
-    >>@app.route(‘/Hola/<nombre>/<int:numero >’)     
-    
+    <code>
+        @app.route(‘/Hola/<nombre>/<int:numero >’)  
+    </code>
+   
     Como observamos cambiamos la variable apellido por una nueva variable llamada numero e indicamos por medio de ‘:’ que tipo de dato es en este caso ‘int’ que nos indica que es un entero
     
     El archivo quedaría de la siguiente forma .
     
-    >>Import flask  from Flask 
-    >>from flask import request
-     >> app = Flask(__name__)   
+    <code>
+        Import flask  from Flask 
+        from flask import request
+        app = Flask(__name__)   
+        
+        @app.route(‘/Hola/’) 
+        @app.route(‘/Hola/<nombre>/’)     
+        @app.route(‘/Hola/<nombre>/<int:numero >’)     
+        def Hola( nombre=’valor por defecto’,numero=`otro valor por defecto`):
+        	return ‘El parámetro es : {}  {}’. Format (nombre , numero)	  
+        If __name__ == ‘_main_’:
+            app.run(debug = True , port = 6000)
+
+    </code>
+   
     
-    >>@app.route(‘/Hola/’) 
-    >>@app.route(‘/Hola/<nombre>/’)     
-    >>@app.route(‘/Hola/<nombre>/<int:numero >’)     
-    >>def Hola( nombre=’valor por defecto’,numero=`otro valor por defecto`):
-    >>	return ‘El parámetro es : {}  {}’. Format (nombre , numero)	  
-    >>If __name__ == ‘_main_’:
-    >>	app.run(debug = True , port = 6000)
-    
-    Al escribir la ruta sería algo así : http://localhost:6000/Hola/Pedro/1
+    Al escribir la ruta sería algo así : <code>http://localhost:6000/Hola/Pedro/1</code> 
     
     Template
     
     Ahora trabajaremos con template, para trabajar con template y poder separar nuestra paginas HTML del resto del código y archivos Python, primero deberemos crear una nueva carpeta con el nombre ‘templates’ este nombre es por defecto y la carpeta debe estar en el mismo nivel que nuestro archivo de ejecución, dentro de la carpeta crearemos un archivo índex.html  con un código sencillo de hola mundo . ejemplo
-    !doctype=HTML
-    <HTML>
-    <HEAD>
-    <tittle> Prueba flask</tittle>
-    </HEAD>
-    <BODY>
-    <H4>Hola mundo</H4>
-    </BODY>
-    </HTML>
-    
+    <code>
+        !Doctype=HTML
+        <HTML>
+        <HEAD>
+        <tittle> Prueba flask</tittle>
+        </HEAD>
+        <BODY>
+        <H4>Hola mundo</H4>
+        </BODY>
+        </HTML>
+        
+    </code>
+  
     Y ahora para poder llamar este archivo HTML desde nuestra servidor hay que indicarlo en la ruta, pero primero deberemos importa una librería de flask que nos renderise la página tras cada llamada, esto se logra con la librería ‘render_template’ y dentro del método modificamos el return indicando por medio de la librería render_template() el nombre de nuestro archivo HTML. En este caso index.HTML
     
-    >>Import flask  from Flask 
-    >>from flask import render_template
-    
-     >> app = Flask(__name__)   
-    
-    >>@app.route(‘/’) 
-    >>def index():
-    >>	return render_template(index.html)	  
-    >>If __name__ == ‘_main_’:
-    >>	app.run(debug = True , port = 6000)
+    <code>
+        Import flask  from Flask 
+        from flask import render_template
+        app = Flask(__name__)   
+        
+        @app.route(‘/’) 
+        def index():
+        	return render_template(index.html)	  
+        If __name__ == ‘_main_’:
+            app.run(debug = True , port = 6000)
+    </code>
+
     
     Esto ordena al programa buscar el archive index.HTML dentro de la carpeta por defecto ‘ templates’ y renderizarla en nuestro navegador . si por algún motivo necesitáramos cambiar el nombre donde se alojan las paginas, esta se logra indicándole al objeto el nuevo nombre que recibirá la carpeta modificando el objeto instanciado ,
     
-    >> app = Flask(__name__, template_folder =”Nuevo_nombre_de_carpeta”)   
-    
+    <code>
+        app = Flask(__name__, template_folder =”Nuevo_nombre_de_carpeta”) 
+    </code>
+       
     Y renombrando la carpeta para que funcionen los cambios.
     
     
@@ -173,65 +244,76 @@
     
      Primero deberemos indicar a la fusión decorador nuestra ruta del template más la variable que se recibirá, posteriormente en la función Index escribir el parámetro que va a recibir , y luego colocar en nuestro return el nombre de la variable con la que se va a designar en nuetros templete o archivo HTML en este caso la variable 
     
-    >>Import flask  from Flask 
-    >>from flask import render_template
-    
-     >> app = Flask(__name__)   
-    
-    >>@app.route(‘/index/<name>’) 
-    >>def index(name= ‘Richardo’):
-    >>	return render_template(index.html, nombre = name)	  
-    >>If __name__ == ‘_main_’:
-    >>	app.run(debug = True , port = 6000)
-    
+    <code>
+        Import flask  from Flask 
+        from flask import render_template
+        app = Flask(__name__)   
+        
+        @app.route(‘/index/<name>’) 
+        def index(name= ‘Richardo’):
+        	return render_template(index.html, nombre = name)	  
+        If __name__ == ‘_main_’:
+        	app.run(debug = True , port = 6000)
+        
+    </code>
+
     Ahora nuestro template recibirá la nueva variable, con el motor jinja2 manejara nuestro template para que pueda ver nuestra nueva variable Jinaja2 usa las dobles llaves de apertura y de cierre para asignar la variables. ‘{{ }}’ , en este caso colocaremos la variable dentro de nuestro template de la siguiente forma.
      
-    
-    <HTML>
-    <HEAD>
-    <tittle> Prueba flask</tittle>
-    </HEAD>
-    <BODY>
-    <H4>Hola mundo</H4>
-    <H4>{{ nombre }}</H4>  <!-- aqui va nuestra nueva variable dentro de {{}}-->
-    
-    </BODY>
-    </HTML>
+    <code>
+        <HTML>
+            <HEAD>
+            <tittle> Prueba flask</tittle>
+            </HEAD>
+            <BODY>
+            <H4>Hola mundo</H4>
+            <H4>{{ nombre }}</H4>  <!-- aqui va nuestra nueva variable dentro de {{}}-->
+            
+            </BODY>
+            </HTML>
+    </code>
+  
     
     
     De esta forma podremos mandar a nuestros template diferentes tipos de variable, como str , int, tuplas, list, booleand , etc. Por ejemplo . 
     
     Cambiado en nuestra función lo siguiente
-        
-    >>def index(name= ‘Richardo’):
-    >>	edad = 20
-    >>	lista_ejemplo = [1,2,3,4,5,6,7,8,9]
-    >>          return render_template(index.html, name = name ,age = edad, mylis= lista_ejemplo)
-    
+    <code>
+        def index(name= ‘Richardo’):
+        	edad = 20
+        	lista_ejemplo = [1,2,3,4,5,6,7,8,9]
+            return render_template(index.html, name = name ,age = edad, mylis= lista_ejemplo)
+    </code>   
+  
     Cambiando en nuestro template
-    
-    <H4>Hola mundo</H4>
-    <H4>{{ name }}</H4>  <!-- aquí va nuestra nueva variable dentro de {{}}-->
-    <H4>{{age}}</H4>
-    <H4>{{mylist}}</H4>
-    
+    <code>
+        <H4>Hola mundo</H4>
+        <H4>{{ name }}</H4>  <!-- aquí va nuestra nueva variable dentro de {{}}-->
+        <H4>{{age}}</H4>
+        <H4>{{mylist}}</H4>
+    </code>
+
     Y así recibiremos los datos en el template. También podremos hacer operación tanto de comparación como de decisiones, condicionales o siclos. para esto usaremos el signo llaves y porcentaje para encasillar estos procesos { % operación %}  , ejemplo de código
     
-    <H4>Hola mundo</H4>
-    <H4>{{ name }}</H4> 
-    <H4>{{age}}</H4>
-    <H4>{{mylist}}</H4>
-    
-    { % if age > 15 %}
-        <p> es mayor de edad. <p>
-    { % endif %}
-    
+    <code>
+        <H4>Hola mundo</H4>
+        <H4>{{ name }}</H4> 
+        <H4>{{age}}</H4>
+        <H4>{{mylist}}</H4>
+        
+        { % if age > 15 %}
+            <p> es mayor de edad. <p>
+        { % endif %}
+        
+    </code>
+
     Al pasarle una edad para comprar se ejecutara la comparación, si es mayor de edad saldrá el mensaje de lo contrario no aparecerá nada, hay que notar que la condicional hay que indicar donde comienza hasta donde termina con el { % endif %}.
     
-    { % for ítem in mylist %}
-        <p> {{item}} <p>
-    { % endfor %}
-    
+    <code>
+        { % for ítem in mylist %}
+            <p> {{item}} <p>
+        { % endfor %}
+    </code>
+  
     
     Herencias de plantillas 
     
@@ -239,31 +321,37 @@
     
     Una de las ventajas de Utilizar flask con el motor jinja2 es que podemos heredar o reusar template y ahorrar en código. Esto nos ayudad a reusar código y optimizar el tiempo de trabajo, para ello debemos crear un nueva carpeta con nombre ‘base’ dentro de la carpeta de  template, y dentro de la carpeta base crearemos un archivo en este ejemplo usaremos en nombre base.HTML 
     Dentro de este archivo colocaremos todo lo que se ira repitiendo constantemente en todo nuestros template. Ejemplo
-         base.HTML
-    <HTML>
-    <HEAD>
-    <tittle> Prueba flask</tittle>
-    </HEAD>
-    <BODY>
-    <H4>Bienvenido a la presentacion de flask</H4>
-        {% block content %}
-        {%endblock%}
-    </BODY>
-    </HTML>
     
+    <code>
+        base.HTML
+        <HTML>
+        <HEAD>
+        <tittle> Prueba flask</tittle>
+        </HEAD>
+        <BODY>
+        <H4>Bienvenido a la presentacion de flask</H4>
+            {% block content %}
+            {%endblock%}
+        </BODY>
+        </HTML>
+    </code>
+
+
     I tendremos una archivo index.Html fuera de las carpetas esta será nuestro template que contendrá la información , para esto escribiremos dentro del archivo index.html lo siguiente 
     
-    {% extends ’base/base.html’%}
+    <code>
+        {% extends ’base/base.html’%}
     
-    {% block content %} 
-    
-        <p> Esto es parte del index </p>
-        <p> {{ name }} </p>
-    
-    {% endblock %}
-    
+        {% block content %} 
+        
+            <p> Esto es parte del index </p>
+            <p> {{ name }} </p>
+        
+        {% endblock %}    
+    </code>
+ 
     Con esto podremos ver como nuestra plantilla usar un template base y a su bes el template donde se encuentra la información.                         
     
-
+   </main>
 </body>
 </html>

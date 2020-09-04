@@ -14,14 +14,14 @@
     <h1>Introduccion a flask</h1>  
     
     <section class="main-section">
-        que es flask
+       <header>que es flask</header> 
 
         <p> flask es en pocas palabras un micro framework que entre sus muchas ventajas es que posee una curva de aprendizaje baja, no posee tantas herramientas y librerías precargadas, mejor aún uno va a decidir que herramientas usar y cuáles no, y su adaptación a proyectos es mucho más sencilla pidiendo crear paginas profesionales o proyectos grandes. No por ser un micro framework nos limitara a tareas sencillas.</p>
 
     </section>
 
     <section class="main-section">
-        por qué usar flask.
+        <header>por qué usar flask.</header> 
     
         <p> Si eres nuevo en el mundo del desarrollo web y más, si te introduces en el back-end se te hará mas amigable el desarrollo con Flask. flask al tener una curva de aprendizaje mucho más baja que otros framework como Django es bueno para comenzar en el desarrollo back-end , evitando la frustración de no entender lo que ocurre con el proyecto o como cuando se realiza una implementación , o más aun como comenzar a correr nuestros proyectos del lado del servidor.
         Flask entre sus muchas virtudes está el poder manejar bases de datos, ORM , template , cokies, páginas web, etc. Su único requisito es tener domino de HTML, CSS y Python.</p>
@@ -29,7 +29,7 @@
     </section>
 
     <section class="main-section">
-        Primeros pasos en flask 
+        <header>Primeros pasos en flask </header> 
     
         Instalación:
         Comenzando con el proceso de instalación, toda la documentación está en la página oficial del proyecto Flask en la Url: https://flask.palletsprojects.com/en/1.1.x/  , en esta página nos muestra los pasos de instalación y los métodos de los diversos sistemas operativos en los cuales estaremos trabajando , ya sea por la por PIP o por la instalación de máquinas virtuales como virtualenv . todo estará supeditado a lo que queremos hacer.
@@ -61,7 +61,8 @@
     </section>
 
     <section class="main-section">
-        Como inicializar el servidor
+        <header>Como inicializar el servidor</header>
+        
     
         Continuando con la información anterior. nuestro servidor se inicializa con el método run o como se vio en el código 
        
@@ -105,9 +106,8 @@
     </section>
 
     <section class="main-section">
-        Rutas y Parámetros
+        <header>Rutas y Parámetros</header>      
     
-
         Como vimos en el código anterior solo tenemos una única ruta (‘/’) . pero como todo proyecto necesitaremos más rutas. podremos agregar tantas rutas como necesitemos, ejemplo
         
         <code>
@@ -164,8 +164,8 @@
     </section>
 
     <section class="main-section">
-        Validación de Rutas 
-    
+        <header>Validación de Rutas </header>
+        
         Ya vimos como recibir parámetros, pero hay otra forma de recibir parámetros en una ruta completa sin el uso del símbolo ? en la llamada al navegador,  y es por medio de una ruta directa . ejemplo
         
         <code>
@@ -221,8 +221,8 @@
     </section>  
 
     <section class="main-section">
-        Template
-    
+        <header> Template </header>
+       
         Ahora trabajaremos con template, para trabajar con template y poder separar nuestra paginas HTML del resto del código y archivos Python, primero deberemos crear una nueva carpeta con el nombre ‘templates’ este nombre es por defecto y la carpeta debe estar en el mismo nivel que nuestro archivo de ejecución, dentro de la carpeta crearemos un archivo índex.html  con un código sencillo de hola mundo . ejemplo
         <code>
             !Doctype=HTML
@@ -263,8 +263,7 @@
     </section>
 
     <section class="main-section">
-        Etiquetas en template 
-    
+        <header>Etiquetas en template </header>
     
         Ahora veremos cómo usar los datos y mandarlos desde flask dentro de un archivo HTML, mediante etiquetas que nuestro manejador jinja2 puede reconocer para crear los render de la página web.
         
@@ -341,9 +340,7 @@
     </section>
     
     <section class="main-section">
-        Herencias de plantillas 
-    
-    
+        <header>Herencias de plantillas </header>
     
         Una de las ventajas de Utilizar flask con el motor jinja2 es que podemos heredar o reusar template y ahorrar en código. Esto nos ayudad a reusar código y optimizar el tiempo de trabajo, para ello debemos crear un nueva carpeta con nombre ‘base’ dentro de la carpeta de  template, y dentro de la carpeta base crearemos un archivo en este ejemplo usaremos en nombre base.HTML 
         Dentro de este archivo colocaremos todo lo que se ira repitiendo constantemente en todo nuestros template. Ejemplo

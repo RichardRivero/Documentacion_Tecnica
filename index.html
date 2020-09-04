@@ -51,9 +51,9 @@
         <pre><code>  
             Import flask  from Flask 
             app = Flask(__name__)   #instanciamos la siguiente clase.
-            @app.route(‘/’)
+            @app.route('/')
             def index():
-               Return ‘Hola Mundo ’
+               Return 'Hola Mundo'
             app.run()
         </code></pre>
 
@@ -99,7 +99,7 @@
         </p>
         <pre>
             <code>
-            If __name__ == ‘_main_’:
+            If __name__ == '_main_':
             </code>
         </pre>
         
@@ -108,11 +108,11 @@
             <code>
         Import flask  from Flask 
         app = Flask(__name__)   #instanciamos la siguiente clase.
-        @app.route(‘/’)
+        @app.route('/')
         def index():
-            Return ‘Hola Mundo ’
-        If __name__ == ‘_main_’:
-        app.run(debug = True , port = 6000)
+            Return 'Hola Mundo'
+        If __name__ == '_main_':
+            app.run(debug = True , port = 6000)
             </code>   
         </pre>
     </section>
@@ -120,17 +120,16 @@
     <section class="main-section" id="Rutas_y_Parámetros">
         <header>Rutas y Parámetros</header>      
         <p>
-        Como vimos en el código anterior solo tenemos una única ruta (‘/’) . pero como todo proyecto necesitaremos más rutas. podremos agregar tantas rutas como necesitemos, ejemplo
+        Como vimos en el código anterior solo tenemos una única ruta ('/') . pero como todo proyecto necesitaremos más rutas. podremos agregar tantas rutas como necesitemos, ejemplo
         </p>
         <pre>
         <code>
-            @app.route(‘/’)
+            @app.route('/')
             Def index():
-                Return ‘Hola Mundo ’
-            
-            @app.route(‘/Hola’)       # ruta nuevas 
+                Return 'Hola Mundo' 
+            @app.route('/Hola')       # ruta nuevas 
             Def Hola():
-                Return ‘nuevos Hola mundo  ’
+                Return 'nuevos Hola mundo'
         </code>
         </pre>
 
@@ -150,10 +149,10 @@
         </p>
         <pre>
             <code>
-        @app.route(‘/Hola’)       # ruta nuevas 
+        @app.route('/Hola')       # ruta nuevas 
         def Hola():	  # localhot:6000/Hola?param=(parametros)
-            param = request.args.get(‘parametro1’, ‘no tiene parametros’)
-            Return ‘El parámetro pasado es {}’.formt(param)
+            param = request.args.get('parametro1', 'no tiene parametros')
+            Return 'El parámetro pasado es {}'.formt(param)
             </code>
         </pre>
       
@@ -164,7 +163,7 @@
         </p>
         <pre>
             <code>
-                param_2= request.args.get(‘parametro2’, ‘no tiene parametros’)
+                param_2= request.args.get('parametro2', 'no tiene parametros')
             </code>
         </pre>
 
@@ -173,10 +172,10 @@
         </p>
         <pre>
             <code>
-        @app.route(‘/Hola’)     
+        @app.route('/Hola')     
         def Hola():	  
-            param = request.args.get(‘parametro1’, ‘no tiene parametros’) # parámetro 1
-            param_2= request.args.get(‘parametro2’, ‘no tiene parametros’) # parametro2
+            param = request.args.get('parametro1', 'no tiene parametros') # parámetro 1
+            param_2= request.args.get('parametro2', 'no tiene parametros') # parametro2
             Return ‘El parámetro pasado es {} y el segundo parámetro es {} ’.formt(param, param_2)
             </code>   
         </pre>
@@ -215,14 +214,13 @@
                 from flask import request
                 app = Flask(__name__)   
                 
-                @app.route(‘/Hola/’) 
-                @app.route(‘/Hola/<nombre>/’)     
-                @app.route(‘/Hola/<nombre>/<apellido>’)     
-                    def Hola( nombre=’valor por defecto’,apellido=`otro valor por defecto`):
-                    return ‘El parámetro es : {}  {}’. Format (nombre , apellido)	  
-                If __name__ == ‘_main_’:
-                    app.run(debug = True , port = 6000)
-                
+                @app.route('/Hola/') 
+                @app.route('/Hola/<nombre>/')     
+                @app.route('/Hola/<nombre>/<apellido>')     
+                    def Hola( nombre='valor por defecto',apellido='otro valor por defecto'):
+                    return 'El parámetro es : {}  {}'. Format (nombre , apellido)	  
+                If __name__ == '_main_':
+                    app.run(debug = True , port = 6000) 
             </code>    
         </pre>
         
@@ -274,16 +272,15 @@
         </p>
         <pre>
             <code>
-            !Doctype=HTML
-            <HTML>
-            <HEAD>
-            <tittle> Prueba flask</tittle>
-            </HEAD>
-            <BODY>
-            <H4>Hola mundo</H4>
-            </BODY>
-            </HTML>
-            
+                !Doctype=HTML
+                <HTML>
+                <HEAD>
+                <tittle> Prueba flask</tittle>
+                </HEAD>
+                <BODY>
+                <H4>Hola mundo</H4>
+                </BODY>
+                </HTML>
             </code>    
         </pre>
         
@@ -296,10 +293,10 @@
                 from flask import render_template
                 app = Flask(__name__)   
                 
-                @app.route(‘/’) 
+                @app.route('/') 
                 def index():
                     return render_template(index.html)	  
-                If __name__ == ‘_main_’:
+                If __name__ == '_main_':
                     app.run(debug = True , port = 6000)
             </code>    
         </pre>
@@ -309,7 +306,7 @@
         </p>
         <pre>
             <code>
-                app = Flask(__name__, template_folder =”Nuevo_nombre_de_carpeta”) 
+                app = Flask(__name__, template_folder ="Nuevo_nombre_de_carpeta") 
             </code>    
         </pre>
         
@@ -330,19 +327,17 @@
 
        <pre>
         <code>
-                Import flask  from Flask 
+                Import flask from Flask 
                 from flask import render_template
                 app = Flask(__name__)   
                 
-                @app.route(‘/index/<name>’) 
-                def index(name= ‘Richardo’):
+                @app.route('/index/<name>') 
+                def index(name= 'Richardo'):
                     return render_template(index.html, nombre = name)	  
-                If __name__ == ‘_main_’:
+                If __name__ == '_main_':
                     app.run(debug = True , port = 6000)      
         </code>    
        </pre>
-        
-
         <p>
         Ahora nuestro template recibirá la nueva variable, con el motor jinja2 manejara nuestro template para que pueda ver nuestra nueva variable Jinaja2 usa las dobles llaves de apertura y de cierre para asignar la variables. ‘{{ }}’ , en este caso colocaremos la variable dentro de nuestro template de la siguiente forma.
         </p>
@@ -355,7 +350,6 @@
                 <BODY>
                 <H4>Hola mundo</H4>
                 <H4>{{ nombre }}</H4>  <!-- aqui va nuestra nueva variable dentro de {{}}-->
-                
                 </BODY>
                 </HTML>
         </code>    
@@ -368,7 +362,7 @@
         </p>
         <pre>
             <code>
-                def index(name= ‘Richardo’):
+                def index(name= 'Richardo'):
                     edad = 20
                     lista_ejemplo = [1,2,3,4,5,6,7,8,9]
                     return render_template(index.html, name = name ,age = edad, mylis= lista_ejemplo)
@@ -401,7 +395,6 @@
                 { % if age > 15 %}
                     <p> es mayor de edad. <p>
                 { % endif %}
-                
             </code>    
         </pre>
                 
@@ -446,7 +439,7 @@
         </p>
         <pre>
             <code>
-                {% extends ’base/base.html’%}
+                {% extends 'base/base.html'%}
             
                 {% block content %} 
                 

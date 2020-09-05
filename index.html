@@ -17,6 +17,13 @@
        <header>que es flask</header> 
 
         <p> flask es en pocas palabras un micro framework que entre sus muchas ventajas es que posee una curva de aprendizaje baja, no posee tantas herramientas y librerías precargadas, mejor aún uno va a decidir que herramientas usar y cuáles no, y su adaptación a proyectos es mucho más sencilla pidiendo crear paginas profesionales o proyectos grandes. No por ser un micro framework nos limitara a tareas sencillas.</p>
+        <p>ventajas de trabajar con flask</p>
+        <ul>
+            <li>Baja curva de aprendizaje</li>
+            <li>rapidez en el desarrollo </li>
+            <li>un micro server para montar en cualquir plataforma</li>
+            <li>puedes adaptar a las necesidades de tu proyecto</li>
+        </ul>
 
     </section>
 
@@ -25,7 +32,15 @@
     
         <p> Si eres nuevo en el mundo del desarrollo web y más, si te introduces en el back-end se te hará mas amigable el desarrollo con Flask. flask al tener una curva de aprendizaje mucho más baja que otros framework como Django es bueno para comenzar en el desarrollo back-end , evitando la frustración de no entender lo que ocurre con el proyecto o como cuando se realiza una implementación , o más aun como comenzar a correr nuestros proyectos del lado del servidor.
         Flask entre sus muchas virtudes está el poder manejar bases de datos, ORM , template , cokies, páginas web, etc. Su único requisito es tener domino de HTML, CSS y Python.</p>
-        
+            
+        <p> por que usar el microframework flask</p>
+            <ul>
+                <li>entorno minimalista</li>
+                <li>rapido para implementar</li>
+                <li>de adapta a proyecto tanto grandes como pequenos</li>
+                <li>A diferencia de Django podemos usar otras herramientas</li>
+            </ul>
+
     </section>
 
     <section class="main-section" id="Primeros_pasos_en_flask">
@@ -61,6 +76,16 @@
         En el siguiente código importamos la librería flask, posteriormente instanciamos un objetos desde la clase Flask mesta lleva por defecto el parametro __name__ , y al instanciarla con la variable app. Esta variable app se convierte en un objeto de la clase flask y tendrá todos los métodos de la librería, a continuación usaremos un decorador (@) para reescribir una función de la librería en este caso route , se realiza esta reescritura de método para asignarle rutas a la llamada del navegador asignándole (‘/’) como dirección, de lo contrario no tendría ninguna ruta y no saldría nada en nuestro navegador.  Y dentro rescribimos el nuevo método lo que retornara en pantalla.
         Posteriormente escribimos el método run de la librería de flask para activar un mini servidos, finalizamos guardando los cambios en el archivo. Ejecutamos el archivo HolaMundoFalsk.py y en nuestro navegado ejecutamos , por defecto flask activa el servidor en el puerto 5000 .
         </p>
+
+        <p>repasando los paso para crear primer proyecto</p>
+            <ol>
+                <li>importar la libreria flask</li>
+                <li>intanciar la clase Flaks a un objeto</li>
+                <li>usar un decorador para modificar el objeto al atributo .route</li>
+                <li>asignar la ruta , esta se coloca como parametro en .route</li>
+                <li>definir el metodo con el nombre de nuestro template</li>
+                <li>ejecutar el servidor .run</li>
+            </ol>
         
     </section>
 
@@ -115,6 +140,16 @@
             app.run(debug = True , port = 6000)
             </code>   
         </pre>
+        
+        <p>repando un poco</p>
+            <ul>
+                <li>activamos el server mediante el metodo .run()</li>
+                <li>por defecto el puerto assignado es el port = 5000</li>
+                <li>activasmo el modo de tes ejecutando la propiedad debug en .run(debug = True)</li>
+                <li>podemos colocar un nuevo puerto de conexion dentro de .run(debug = True, port = [numero_de_puerto]) </li>
+            </ul>
+
+
     </section>
 
     <section class="main-section" id="Rutas_y_Parámetros">
@@ -135,6 +170,16 @@
 
         <p>
         Podremos hacer tantas rutas como queramos, cada ruta debe tener su métodos respectiva, nunca debemos repetir el nombre de los métodos
+        </p>
+
+        paso para hacer nuevas rutas
+        <ul>
+            <li>a nuetra objeto aplicamos un decorador con una nueva ruta con el metodo .route()</li>
+            <li>dentro del metodo .route() colocamos el nombre de la ruta</li>
+            <li>con el mismo nombre que identificasmos creamos su metodo </li>
+        </ul>
+
+        <p>
         En las rutas podemos recibir parámetros ya sea cuando ágamos una petición o llenemos un formulario entre otras situaciones, para esto debemos importar la librería request
         </p>
         <pre>
@@ -181,7 +226,7 @@
         </pre>
         
         <p>
-        las variables están separadas por el ‘&’
+        las variables están separadas por el '&'
         </p>
         <pre>
             <code>
@@ -251,9 +296,9 @@
             @app.route(‘/Hola/’) 
             @app.route(‘/Hola/<nombre>/’)     
             @app.route(‘/Hola/<nombre>/<int:numero >’)     
-            def Hola( nombre=’valor por defecto’,numero=`otro valor por defecto`):
-                return ‘El parámetro es : {}  {}’. Format (nombre , numero)	  
-            If __name__ == ‘_main_’:
+            def Hola( nombre='valor por defecto',numero='otro valor por defecto'):
+                return 'El parámetro es : {}  {}'. Format (nombre , numero)	  
+            If __name__ == '_main_':
                 app.run(debug = True , port = 6000)
     
             </code>    
@@ -390,8 +435,7 @@
                 <H4>Hola mundo</H4>
                 <H4>{{ name }}</H4> 
                 <H4>{{age}}</H4>
-                <H4>{{mylist}}</H4>
-                
+                <H4>{{mylist}}</H4>         
                 { % if age > 15 %}
                     <p> es mayor de edad. <p>
                 { % endif %}
@@ -440,12 +484,9 @@
         <pre>
             <code>
                 {% extends 'base/base.html'%}
-            
                 {% block content %} 
-                
                     <p> Esto es parte del index </p>
                     <p> {{ name }} </p>
-                
                 {% endblock %}    
             </code>    
         </pre>

@@ -492,11 +492,15 @@
         <p>Una de las ventajas de Utilizar flask con el motor jinja2 es que podemos heredar o reusar template y ahorrar en código. Esto nos ayudad a reusar código y optimizar el tiempo de trabajo, para ello debemos crear un nueva carpeta con nombre ‘base’ dentro de la carpeta de  template, y dentro de la carpeta base crearemos un archivo en este ejemplo usaremos en nombre base.HTML 
         Dentro de este archivo colocaremos todo lo que se ira repitiendo constantemente en todo nuestros template. Ejemplo
         </p> 
-
+<!--     corregir para que se vea las instrucciones HTML
         <pre>
             <code>
                 base.HTML
-                <HTML>
+                <span>
+                    <span><</span>
+                    "HTML"
+                    <span>></span>
+                </span><br>
                 <HEAD>
                 <tittle> Prueba flask</tittle>
                 </HEAD>
@@ -508,7 +512,7 @@
                 </HTML>
             </code>    
         </pre>
-        
+-->        
         <p>
         I tendremos una archivo index.Html fuera de las carpetas esta será nuestro template que contendrá la información , para esto escribiremos dentro del archivo index.html lo siguiente 
         </p>

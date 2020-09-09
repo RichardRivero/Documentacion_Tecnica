@@ -1,8 +1,20 @@
 
 
+p{
+    font-family: 'Heebo';
+    text-justify: auto;
+
+}
+
+.main-section{
+    background-color: cornsilk;
+    width: auto;
+}
+
+
 /*   usar media  para mejorar el uso de la pagina en otros dispositivos*/
 
-@media ( /*colocar restriciones */ ) {         /*introduccion a medios para responsive desing*/
+@media/*colocar restriciones */ {         /*introduccion a medios para responsive desing*/
 
 
 }  

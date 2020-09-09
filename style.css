@@ -1,4 +1,8 @@
 
+
+
+
+
 body{
     background-color: darkgray;
 }
@@ -16,6 +20,10 @@ p{
     width: auto;
 }
 
+
+#navbar ul li{
+    text-decoration:none;
+}
 
 /*   usar media  para mejorar el uso de la pagina en otros dispositivos*/
 

@@ -66,8 +66,10 @@ p{
     text-decoration: none;
     display: block;
     padding: 25px 5px 25px 5px ;
-
+    text-align: center;
     border: solid 1px #A12B85 ;
+    font: 'Acme';
+    font-size: 20px;
 }
 
 pre {

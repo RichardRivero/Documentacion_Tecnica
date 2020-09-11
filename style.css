@@ -15,11 +15,9 @@ body{
 p{
     font-family: 'Heebo';
     text-justify: auto;
-
 }
 
 .sub-titulos{
-
     font-size: 1.5rem;
     padding: 15px 10px 15px 10px;
 }
@@ -50,6 +48,8 @@ p{
     padding: 15px 5px 15px 5px ;
     background-color: #EB94D6;
     width: 210px;
+    font-size:30px ;
+    font-family: 'Acme';
 }
 
 #navbar ul {
@@ -69,20 +69,18 @@ p{
     padding: 25px 5px 25px 5px ;
     text-align: center;
     border: solid 1px #31142b ;
-    font: 'Acme';
+    font-family: 'Acme';
     font-size: 20px;
 }
 #navbar ul li a:hover{
-
     background-color: #c494eb;
 }
 
 pre {
-
     background-color: #362d2d4d; 
     border-radius: 15px;   
 }
-/*   usar media  para mejorar el uso de la pagina en otros dispositivos*/
+
 
 @media/*colocar restriciones */ {         /*introduccion a medios para responsive desing*/
 

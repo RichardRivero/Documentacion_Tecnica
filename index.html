@@ -261,8 +261,8 @@
             app = Flask(__name__)   
                 
             @app.route('/Hola/') 
-            @app.route('/Hola/<nombre>/')     
-            @app.route('/Hola/<nombre>/<apellido>')     
+            @app.route('/Hola/&lt;nombre&gt;/')     <!--   &lt;    &gt;    .. para colocar la apertura y cierre -->
+            @app.route('/Hola/&lt;nombre&gt;/&lt;apellido&gt;')     
             def Hola( nombre='valor por defecto',apellido='otro valor por defecto'):
                 return 'El parámetro es : {}  {}'. Format (nombre , apellido)	  
             If __name__ == '_main_':

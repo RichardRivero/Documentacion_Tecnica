@@ -25,28 +25,34 @@ p{
     width: auto;
 }
 
-#cab-intro{
+#navbar{
+    margin-left: -20px;
+    margin-top: -10px;
+}
 
+#cab-intro{
+    z-index: 1;
     size: 20PX;
     text-decoration-color: chocolate;
     display: block;
     position: fixed;
-    text-align: left;
-    margin-left: 30px;
+    text-align: center;
+    margin-left: 10px;
     padding: 5px ;
-    /*border: solid 2px #A12B85 ;*/
+    background-color: #EB94D6;
+    width: 250px;
     
 }
 
 #navbar ul {
     position: fixed;
     list-style-type: none;
-    margin: 0;
+    margin: 10px;
     padding: 30px;
     width: 200px;
     overflow: auto;
     
-    background-color: ;
+    background-color: #EB94D6;
 }
 
 #navbar ul li a{
@@ -54,7 +60,6 @@ p{
     display: block;
     padding: 5px ;
     border: solid 2px #A12B85 ;
-    border-color:  ;
 }
 
 

@@ -1,7 +1,12 @@
 
-
-
-
+/* list color 
+    #9E9464
+    #C3EBEA
+    #EBE0AB
+    #EB94D6
+    #A12B85
+    
+*/
 
 body{
     background-color: darkgray;
@@ -14,33 +19,36 @@ p{
 }
 
 .main-section{
-    margin: 10px 10px 10px 200px;
-    padding: 10px;
+    margin: 10px 10px 10px 220px;
+    padding: 10px 10px 10px 100px;
     background-color: cornsilk;
     width: auto;
 }
 
 }
+
 #navbar header{
-    
-    text-align: left;
-    
-    
-}
-#navbar ul li a{
-    text-decoration: none;
+    position: float;
     display: block;
+    text-align: left;  
 }
+
 #navbar ul {
     position: fixed;
     list-style-type: none;
     margin: 0;
     padding: 30px;
     width: 200px;
-    
     overflow: auto;
     background-color: ;
 }
+
+#navbar ul li a{
+    text-decoration: none;
+    display: block;
+    border-color:  ;
+}
+
 
 /*   usar media  para mejorar el uso de la pagina en otros dispositivos*/
 

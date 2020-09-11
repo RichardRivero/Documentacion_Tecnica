@@ -22,23 +22,24 @@ p{
 
 }
 #navbar header{
-    /*display: block;*/
+    
     text-align: left;
-    padding-top: 50px;
-    margin: 60px;
+    
     
 }
 #navbar ul li a{
-    /*display: block;*/
+    text-decoration: none;
+    display: block;
 }
 #navbar ul {
     position: fixed;
     list-style-type: none;
-    margin: 30px;
+    margin: 0;
     padding: 30px;
     width: 200px;
-    text-decoration: none;
+    
     overflow: auto;
+    background-color: ;
 }
 
 /*   usar media  para mejorar el uso de la pagina en otros dispositivos*/

@@ -20,9 +20,28 @@ p{
     width: auto;
 }
 
-
-#navbar ul li{
-    text-decoration:none;
+#navbar{
+    position: fixes;
+    display: block;
+}
+#navbar header{
+    /*display: block;*/
+    text-align: left;
+    padding-top: 50px;
+    margin: 60px;
+    
+}
+#navbar ul li a{
+    /*display: block;*/
+}
+#navbar ul {
+    position: fixed;
+    list-style-type: none;
+    margin: 30px;
+    padding: 30px;
+    width: 60px;
+    text-decoration: none;
+    overflow: auto;
 }
 
 /*   usar media  para mejorar el uso de la pagina en otros dispositivos*/

@@ -46,7 +46,7 @@ p{
     position: fixed;
     text-align: center;
     margin-left: 10px;
-    padding: 5px ;
+    padding: 15px 5px 15px 5px ;
     background-color: #EB94D6;
     width: 210px;
 }
@@ -54,7 +54,7 @@ p{
 #navbar ul {
     position: fixed;
     list-style-type: none;
-    margin: 10px 10px 10px 10px;
+    margin: 30px 10px 10px 10px;
     padding: 30px;
     width: 160px;
     overflow: auto;

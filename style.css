@@ -25,12 +25,17 @@ p{
     width: auto;
 }
 
-}
+#cab-intro{
 
-#navbar header{
-    position: float;
+    size: 20PX;
+    text-decoration-color: chocolate;
     display: block;
-    text-align: left;  
+    position: fixed;
+    text-align: left;
+    margin-left: 30px;
+    padding: 5px ;
+    /*border: solid 2px #A12B85 ;*/
+    
 }
 
 #navbar ul {
@@ -40,12 +45,15 @@ p{
     padding: 30px;
     width: 200px;
     overflow: auto;
+    
     background-color: ;
 }
 
 #navbar ul li a{
     text-decoration: none;
     display: block;
+    padding: 5px ;
+    border: solid 2px #A12B85 ;
     border-color:  ;
 }
 

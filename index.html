@@ -278,7 +278,7 @@
         </p>
 
         <pre><code>
-            @app.route(‘/Hola/<nombre>/<int:numero >’)  
+            @app.route(‘/Hola/&lt;nombre&gt;/&lt;int:numero&gt;’)  
             </code></pre>
         
         <p>
@@ -292,8 +292,8 @@
             app = Flask(__name__)   
             
             @app.route(‘/Hola/’) 
-            @app.route(‘/Hola/<nombre>/’)     
-            @app.route(‘/Hola/<nombre>/<int:numero >’)     
+            @app.route('/Hola/&lt;nombre&gt;/')     <!--   &lt;    &gt;    .. para colocar la apertura y cierre -->
+            @app.route('/Hola/&lt;nombre&gt;/&lt;apellido&gt;')     
             def Hola( nombre='valor por defecto',numero='otro valor por defecto'):
                 return 'El parámetro es : {}  {}'. Format (nombre , numero)	  
             If __name__ == '_main_':
@@ -315,16 +315,14 @@
         Ahora trabajaremos con template, para trabajar con template y poder separar nuestra paginas HTML del resto del código y archivos Python, primero deberemos crear una nueva carpeta con el nombre ‘templates’ este nombre es por defecto y la carpeta debe estar en el mismo nivel que nuestro archivo de ejecución, dentro de la carpeta crearemos un archivo índex.html  con un código sencillo de hola mundo . ejemplo
         </p>
         <pre><code>
-            !Doctype=HTML
-            <HTML>
-            <HEAD>
-            <tittle> Prueba flask</tittle>
-            </HEAD>
-            <BODY>
-            <H4>Hola mundo</H4>
-            </BODY>
-            </HTML>
-
+            &lt;HTMl&gt;
+                &lt;HEAD&gt;
+                    &lt;tittle&gt; Prueba flask&lt;/tittle&gt;
+                &lt;/HEAD&gt;
+                &lt;BODY&gt;
+                    &lt;H4&gt;Hola mundo&lt;/H4&gt;
+                &lt;/BODY&gt;
+            &lt;/HTMl&gt;
             </code></pre>      
         <p>
         Y ahora para poder llamar este archivo HTML desde nuestra servidor hay que indicarlo en la ruta, pero primero deberemos importa una librería de flask que nos renderise la página tras cada llamada, esto se logra con la librería ‘render_template’ y dentro del método modificamos el return indicando por medio de la librería render_template() el nombre de nuestro archivo HTML. En este caso index.HTML
@@ -368,7 +366,7 @@
             from flask import render_template
             app = Flask(__name__)   
                 
-            @app.route('/index/<name>') 
+            @app.route('/index/&lt;name&gt;') 
             def index(name= 'Richardo'):
                     return render_template(index.html, nombre = name)	  
                 If __name__ == '_main_':
@@ -378,15 +376,15 @@
         Ahora nuestro template recibirá la nueva variable, con el motor jinja2 manejara nuestro template para que pueda ver nuestra nueva variable Jinaja2 usa las dobles llaves de apertura y de cierre para asignar la variables. ‘{{ }}’ , en este caso colocaremos la variable dentro de nuestro template de la siguiente forma.
         </p>
         <pre><code>
-            <HTML>
-                <HEAD>
-                <tittle> Prueba flask</tittle>
-                </HEAD>
-                <BODY>
-                <H4>Hola mundo</H4>
-                <H4>{{ nombre }}</H4>  <!-- aqui va nuestra nueva variable dentro de {{}}-->
-                </BODY>
-                </HTML>
+            &lt;HTMl&gt;
+                &lt;HEAD&gt;
+                    &lt;tittle&gt; Prueba flask&lt;/tittle&gt;
+                &lt;/HEAD&gt;
+                &lt;BODY&gt;
+                    &lt;H4&gt;Hola mundo&lt;/H4&gt;
+                    &lt;H4&gt;{{ nombre }}&lt;/H4&gt; <!-- aqui va nuestra nueva variable dentro de {{}}-->
+                &lt;/BODY&gt;
+            &lt;/HTMl&gt;
         </code></pre>
                 
         <p>
@@ -406,32 +404,32 @@
         </p>
         
         <pre><code>
-                <H4>Hola mundo</H4>
-                <H4>{{ name }}</H4> 
-                <H4>{{age}}</H4>
-                <H4>{{mylist}}</H4>
+                &lt;H4&gt;Hola mundo&lt;/H4&gt;
+                &lt;H4&gt;{{ name }}&lt;/H4&gt;
+                &lt;H4&gt;{{ age }}&lt;/H4&gt;
+                &lt;H4&gt;{{ mylist }}&lt;/H4&gt; 
             </code></pre>
         
         <p>
         Y así recibiremos los datos en el template. También podremos hacer operación tanto de comparación como de decisiones, condicionales o siclos. para esto usaremos el signo llaves y porcentaje para encasillar estos procesos { % operación %}  , ejemplo de código
         </p>
         <pre><code>
-                <H4>Hola mundo</H4>
-                <H4>{{ name }}</H4> 
-                <H4>{{age}}</H4>
-                <H4>{{mylist}}</H4>         
-                { % if age > 15 %}
-                    <p> es mayor de edad. <p>
-                { % endif %}
+            &lt;H4&gt;Hola mundo&lt;/H4&gt;
+            &lt;H4&gt;{{ name }}&lt;/H4&gt;
+            &lt;H4&gt;{{ age }}&lt;/H4&gt;
+            &lt;H4&gt;{{ mylist }}&lt;/H4&gt; 
+                {% if age > 15 %}
+                    &lt;p&gt;es mayor de edad.&lt;/p&gt;
+                {% endif %}
             </code></pre>
                 
         <p>
         Al pasarle una edad para comprar se ejecutara la comparación, si es mayor de edad saldrá el mensaje de lo contrario no aparecerá nada, hay que notar que la condicional hay que indicar donde comienza hasta donde termina con el { % endif %}.
         </p>
         <pre><code>
-                { % for ítem in mylist %}
-                    <p> {{item}} <p>
-                { % endfor %}
+                {% for ítem in mylist %}
+                    &lt;p&gt;{{item}}&lt;/p&gt;
+                {% endfor %}
             </code></pre>     
     </section>
     
@@ -443,20 +441,17 @@
         </p> 
         <pre><code>
                 base.HTML
-                <span>
-                    <span><</span>
-                    "HTML"
-                    <span>></span>
-                </span><br>
-                <HEAD>
-                <tittle> Prueba flask</tittle>
-                </HEAD>
-                <BODY>
-                <H4>Bienvenido a la presentacion de flask</H4>
-                    {% block content %}
-                    {%endblock%}
-                </BODY>
-                </HTML>
+
+                &lt;HTMl&gt;
+                    &lt;HEAD&gt;
+                        &lt;tittle&gt; Prueba flask&lt;/tittle&gt;
+                    &lt;/HEAD&gt;
+                    &lt;BODY&gt;
+                        &lt;H4&gt;Bienvenido a la presentacion de flask&lt;/H4&gt;
+                        &lt;H4&gt;{% block content %}&lt;/H4&gt;
+                        &lt;H4&gt;{% endblock %}&lt;/H4&gt; <!-- aqui va nuestra nueva variable dentro de {{}}-->
+                    &lt;/BODY&gt;
+                &lt;/HTMl&gt;                
             </code></pre>
        
         <p>
@@ -465,8 +460,8 @@
         <pre><code>
                 {% extends 'base/base.html'%}
                 {% block content %} 
-                    <p> Esto es parte del index </p>
-                    <p> {{ name }} </p>
+                    &lt;p&gt;Esto es parte del index.&lt;/p&gt;
+                    &lt;p&gt;{{ name }}&lt;/p&gt;
                 {% endblock %}    
             </code></pre>
         

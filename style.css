@@ -18,6 +18,12 @@ p{
 
 }
 
+.sub-titulos{
+
+    font-size: 1.5rem;
+    padding: 15px 10px 15px 10px;
+}
+
 .main-section{
     margin: 10px 10px 10px 220px;
     padding: 10px 10px 10px 100px;
@@ -41,25 +47,24 @@ p{
     padding: 5px ;
     background-color: #EB94D6;
     width: 250px;
-    
 }
 
 #navbar ul {
     position: fixed;
     list-style-type: none;
-    margin: 10px;
+    margin: 10px 10px 10px 10px;
     padding: 30px;
     width: 200px;
     overflow: auto;
-    
     background-color: #EB94D6;
 }
 
 #navbar ul li a{
     text-decoration: none;
     display: block;
-    padding: 5px ;
-    border: solid 2px #A12B85 ;
+    padding: 25px 5px 25px 5px ;
+
+    border: solid 1px #A12B85 ;
 }
 
 

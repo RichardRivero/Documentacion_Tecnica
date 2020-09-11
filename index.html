@@ -10,7 +10,7 @@
 </head>
 <body>
     <nav id="navbar">
-        <header id="cab-intro">Introduccion a flask</header>
+        <header id="cab-intro" class="sub-titulos">Introduccion a flask</header>
         <ul>
             <li>
                 <a class="nav-link" href="#Que_es_flask">Que es flask</a>
@@ -46,7 +46,7 @@
    <main id="main-doc">
 
     <section class="main-section" id="Que_es_flask">
-       <header>Que es flask</header> 
+       <header class="sub-titulos">Que es flask</header> 
 
         <p> flask es en pocas palabras un micro framework que entre sus muchas ventajas es que posee una curva de aprendizaje baja, no posee tantas herramientas y librerías precargadas, mejor aún uno va a decidir que herramientas usar y cuáles no, y su adaptación a proyectos es mucho más sencilla pidiendo crear paginas profesionales o proyectos grandes. No por ser un micro framework nos limitara a tareas sencillas.</p>
         <p>ventajas de trabajar con flask</p>
@@ -60,7 +60,7 @@
     </section>
 
     <section class="main-section" id="Por_qué_usar_flask.">
-        <header>Por qué usar flask.</header> 
+        <header class="sub-titulos">Por qué usar flask.</header> 
     
         <p> Si eres nuevo en el mundo del desarrollo web y más, si te introduces en el back-end se te hará mas amigable el desarrollo con Flask. flask al tener una curva de aprendizaje mucho más baja que otros framework como Django es bueno para comenzar en el desarrollo back-end , evitando la frustración de no entender lo que ocurre con el proyecto o como cuando se realiza una implementación , o más aun como comenzar a correr nuestros proyectos del lado del servidor.
         Flask entre sus muchas virtudes está el poder manejar bases de datos, ORM , template , cokies, páginas web, etc. Su único requisito es tener domino de HTML, CSS y Python.</p>
@@ -76,9 +76,9 @@
     </section>
 
     <section class="main-section" id="Primeros_pasos_en_flask">
-        <header>Primeros pasos en flask</header> 
+        <header class="sub-titulos">Primeros pasos en flask</header> 
     
-        <h2>Instalación:</h2>     
+        <p>Instalación:   </p>  
         <p>Comenzando con el proceso de instalación, toda la documentación está en la página oficial del proyecto Flask en la Url: https://flask.palletsprojects.com/en/1.1.x/  , en esta página nos muestra los pasos de instalación y los métodos de los diversos sistemas operativos en los cuales estaremos trabajando , ya sea por la por PIP o por la instalación de máquinas virtuales como virtualenv . todo estará supeditado a lo que queremos hacer.
         Es importante destacar que si estamos trabajando en un entorno Unix o OS, tanto Python como PIP estarán preinstalados en la versiones más recientes de tu sistema Operativo. En cambio sí nos encontramos en un entorno Windows tendremos que instalar Python como pip , pero si instalamos Python en sus versiones más actuales como la Python 3.6 en adelante solo con instalar Python bastara ya que pip se encuentra dentro del propio repositorio, en cambio sí tendremos que bajar cualquier extensión para crear entornos virtuales.</p> 
         <p>
@@ -122,7 +122,7 @@
     </section>
 
     <section class="main-section" id="Como_inicializar_el_servidor">
-        <header>Como inicializar el servidor</header>
+        <header class="sub-titulos">Como inicializar el servidor</header>
         
         <p>
         Continuando con la información anterior. nuestro servidor se inicializa con el método run o como se vio en el código 
@@ -185,7 +185,7 @@
     </section>
 
     <section class="main-section" id="Rutas_y_Parámetros">
-        <header>Rutas y Parámetros</header>      
+        <header class="sub-titulos">Rutas y Parámetros</header>      
         <p>
         Como vimos en el código anterior solo tenemos una única ruta ('/') . pero como todo proyecto necesitaremos más rutas. podremos agregar tantas rutas como necesitemos, ejemplo
         </p>
@@ -270,7 +270,7 @@
     </section>
 
     <section class="main-section" id="Validación_de_Rutas">
-        <header>Validación de Rutas</header>
+        <header class="sub-titulos">Validación de Rutas</header>
         
         <p>        
         Ya vimos como recibir parámetros, pero hay otra forma de recibir parámetros en una ruta completa sin el uso del símbolo ? en la llamada al navegador,  y es por medio de una ruta directa . ejemplo
@@ -343,7 +343,7 @@
     </section>  
 
     <section class="main-section" id="Template">
-        <header>Template</header>
+        <header class="sub-titulos">Template</header>
         <p>
         Ahora trabajaremos con template, para trabajar con template y poder separar nuestra paginas HTML del resto del código y archivos Python, primero deberemos crear una nueva carpeta con el nombre ‘templates’ este nombre es por defecto y la carpeta debe estar en el mismo nivel que nuestro archivo de ejecución, dentro de la carpeta crearemos un archivo índex.html  con un código sencillo de hola mundo . ejemplo
         </p>
@@ -395,7 +395,7 @@
     </section>
 
     <section class="main-section" id="Etiquetas_en_template">
-        <header>Etiquetas en template</header>
+        <header class="sub-titulos">Etiquetas en template</header>
         
         <p>
         Ahora veremos cómo usar los datos y mandarlos desde flask dentro de un archivo HTML, mediante etiquetas que nuestro manejador jinja2 puede reconocer para crear los render de la página web.
@@ -488,7 +488,7 @@
     </section>
     
     <section class="main-section" id="Herencias_de_plantillas">
-        <header>Herencias de plantillas</header>
+        <header class="sub-titulos">Herencias de plantillas</header>
     
         <p>Una de las ventajas de Utilizar flask con el motor jinja2 es que podemos heredar o reusar template y ahorrar en código. Esto nos ayudad a reusar código y optimizar el tiempo de trabajo, para ello debemos crear un nueva carpeta con nombre ‘base’ dentro de la carpeta de  template, y dentro de la carpeta base crearemos un archivo en este ejemplo usaremos en nombre base.HTML 
         Dentro de este archivo colocaremos todo lo que se ira repitiendo constantemente en todo nuestros template. Ejemplo

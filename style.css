@@ -48,14 +48,14 @@ p{
     padding: 15px 5px 15px 5px ;
     background-color: #EB94D6;
     width: 210px;
-    font-size:30px ;
+    font-size: 30px;
     font-family: 'Acme';
 }
 
 #navbar ul {
     position: fixed;
     list-style-type: none;
-    margin: 30px 10px 10px 10px;
+    margin: 80px 10px 10px 10px;
     padding: 30px;
     width: 160px;
     overflow: auto;
@@ -66,7 +66,7 @@ p{
 #navbar ul li a{
     text-decoration: none;
     display: block;
-    padding: 25px 5px 25px 5px ;
+    padding: 20px 5px 20px 5px ;
     text-align: center;
     border: solid 1px #31142b ;
     font-family: 'Acme';

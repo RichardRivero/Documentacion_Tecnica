@@ -68,9 +68,13 @@ p{
     display: block;
     padding: 25px 5px 25px 5px ;
     text-align: center;
-    border: solid 1px #A12B85 ;
+    border: solid 1px #31142b ;
     font: 'Acme';
     font-size: 20px;
+}
+#navbar ul li a:hover{
+
+    background-color: #c494eb;
 }
 
 pre {

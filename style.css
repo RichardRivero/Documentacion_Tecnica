@@ -74,40 +74,48 @@ pre {
 }
 
 
-@media only screen and (max-width: 800px){         /*introduccion a medios para responsive desing*/
-
-    #main-doc{
-
-        margin-top: 200px;
-    }
-
+@media only screen and (max-width: 900px){         /*introduccion a medios para responsive desing*/
     
     #navbar{
-        position: absolute;
+        position: relative;
         width: 100%;
+        margin: auto;
         top: 0px;
         left: 0px;
-        height: 300px;
+        height: auto;
         display: inline-block;
+        min-width: auto;
+
     }
     #cab-intro {
-        width: 100%;
-        height: 20px;
+        position: relative;
+        width: auto;
+        height: auto;
         text-align: center;
         display:block;
         padding: 15px 5px 15px 5px;
         background-color: #EB94D6;
     }
     #navbar ul {
-        
-        margin-block-start: 50px;
+        position: relative;
+        margin-block-start: 0px;
+        margin-block-end: 0px;
         display:block;
-        width: 100%;
-        border: 1px solid;
-        height: 207px;
-        overflow-x:hidden;
-        overflow-y: auto;
+        width: auto;
+        border: 0px;
+        height: auto;
+        overflow: auto;
+        margin: auto;
+    }
+    #navbar ul li a{
+        position: relative;
+        display: block;
+        padding: 0px;
+
+    }  
+    .main-section{
+    margin: auto;
+    width: 70%;
     }
 
-
-}  
+}

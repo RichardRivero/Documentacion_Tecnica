@@ -71,6 +71,7 @@ p{
     border: solid 1px #31142b ;
     font-family: 'Acme';
     font-size: 20px;
+    cursor: pointer; /* modifica la forma del puntero*/
 }
 #navbar ul li a:hover{
     background-color: #c494eb;
@@ -82,7 +83,49 @@ pre {
 }
 
 
-@media/*colocar restriciones */ {         /*introduccion a medios para responsive desing*/
+@media only screen and (max-width: 800px){         /*introduccion a medios para responsive desing*/
 
+    #navbar{
+        position: absolute;
+        top: 0;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        max-height: 275px;
+        border: none;
+        z-index: 1;
+        border-bottom: 2px solid;
+    }
+
+    #navbar ul {
+        border: 1px solid;
+        height: 207px;
+        overflow-x:hidden;
+        overflow-y: auto;
+    }
+    #cab-intro {
+        /* z-index: 1; */
+        /* size: 20PX; */
+        /* text-decoration-color: chocolate; */
+        /* display: block; */
+        /* position: fixed; */
+        text-align: center;
+        /* margin-left: 10px; */
+        padding: 15px 5px 15px 5px;
+        background-color: #EB94D6;
+        /* width: 210px; */
+        /* font-size: 30px; */
+        /* font-family: 'Acme'; */
+    }
+    #navbar ul {
+        /* position: fixed; */
+        /* list-style-type: none; */
+        margin: auto;
+        padding: 30px;
+        /* width: 160px; */
+        overflow: auto;
+        background-color: #EB94D6;
+        /* border-radius: 0px 0px 15px 15px; */
+    }
 
 }  

@@ -95,7 +95,7 @@
        
         <pre><code>  
             Import flask  from Flask 
-            app = Flask(__name__)   #instanciamos la siguiente clase.
+            app = Flask(__name__) 
             @app.route('/')
             def index():
                Return 'Hola Mundo'
@@ -153,7 +153,7 @@
             <p>Nos quedario el condigo de la siguiente forma.</p>
         <pre><code>
             Import flask  from Flask 
-            app = Flask(__name__)   #instanciamos la siguiente clase.
+            app = Flask(__name__) 
             @app.route('/')
             def index():
                 Return 'Hola Mundo'
@@ -181,7 +181,7 @@
             @app.route('/')
             Def index():
                 Return 'Hola Mundo' 
-            @app.route('/Hola')       # ruta nuevas 
+            @app.route('/Hola')       
             Def Hola():
                 Return 'nuevos Hola mundo'
         </code></pre>
@@ -208,28 +208,28 @@
         ejemplo:
         </p>
         <pre><code>
-            @app.route('/Hola')       # ruta nuevas 
-            def Hola():	  # localhot:6000/Hola?param=(parametros)
-                param = request.args.get('parametro1', 'no tiene parametros')
-                Return 'El parámetro pasado es {}'.formt(param)
-            </code></pre>
+        @app.route('/Hola')       # ruta nuevas 
+        def Hola():	  # localhot:6000/Hola?param=(parametros)
+            param = request.args.get('parametro1', 'no tiene parametros')
+            Return 'El parámetro pasado es {}'.formt(param)
+        </code></pre>
         <p>
         Como se puede observar al llamar a una ruta va a recibir una consulta de método donde obtendrá en este caso un parámetro llamado ‘paramatro1’ el cual su valor se alojara en la variable param y al retornar un valor saldrá en pantalla del navegador “El parámetro pasado es (parametros) ”
         De lo contrario al no recibir algún parámetro mostrara en pantalla por defecto “El parámetro pasado es no tiene parámetros” 
         Para agregar mas parámetros solo hay que agregar otras capturas de parámetros con el nombre de la variable. Ejemplo .
         </p>
         <pre><code>
-            param_2= request.args.get('parametro2', 'no tiene parametros')
+        param_2= request.args.get('parametro2', 'no tiene parametros')
             </code></pre>
         <p>
         Y podremos hacer una prueba mandando la información desde el navegador y modificando la ruta de la siguiente manera. Ejemplo 
         </p>
         <pre><code>
-            @app.route('/Hola')     
-            def Hola():	  
-                param = request.args.get('parametro1', 'no tiene parametros') # parámetro 1
-                param_2= request.args.get('parametro2', 'no tiene parametros') # parametro2
-                Return ‘El parámetro pasado es {} y el segundo parámetro es {} ’.formt(param, param_2)
+        @app.route('/Hola')     
+        def Hola():	  
+            param = request.args.get('parametro1', 'no tiene parametros') # parámetro 1
+            param_2= request.args.get('parametro2', 'no tiene parametros') # parametro2
+            Return ‘El parámetro pasado es {} y el segundo parámetro es {} ’.formt(param, param_2)
             </code></pre>
         <p>
         las variables están separadas por el '&'
@@ -256,17 +256,17 @@
         </p>
 
         <pre><code>
-            Import flask  from Flask 
-            from flask import request
-            app = Flask(__name__)   
+        Import flask  from Flask 
+        from flask import request
+        app = Flask(__name__)   
                 
-            @app.route('/Hola/') 
-            @app.route('/Hola/&lt;nombre&gt;/')     <!--   &lt;    &gt;    .. para colocar la apertura y cierre -->
-            @app.route('/Hola/&lt;nombre&gt;/&lt;apellido&gt;')     
-            def Hola( nombre='valor por defecto',apellido='otro valor por defecto'):
-                return 'El parámetro es : {}  {}'. Format (nombre , apellido)	  
-            If __name__ == '_main_':
-                app.run(debug = True , port = 6000) 
+        @app.route('/Hola/') 
+        @app.route('/Hola/&lt;nombre&gt;/')     
+        @app.route('/Hola/&lt;nombre&gt;/&lt;apellido&gt;')     
+        def Hola( nombre='valor por defecto',apellido='otro valor por defecto'):
+            return 'El parámetro es : {}  {}'. Format (nombre , apellido)	  
+        If __name__ == '_main_':
+            app.run(debug = True , port = 6000) 
             </code>    
         </pre>
         
@@ -287,17 +287,17 @@
         El archivo quedaría de la siguiente forma .
         </p>
         <pre><code>
-            Import flask  from Flask 
-            from flask import request
-            app = Flask(__name__)   
+        Import flask  from Flask 
+        from flask import request
+        app = Flask(__name__)   
             
-            @app.route(‘/Hola/’) 
-            @app.route('/Hola/&lt;nombre&gt;/')     <!--   &lt;    &gt;    .. para colocar la apertura y cierre -->
-            @app.route('/Hola/&lt;nombre&gt;/&lt;apellido&gt;')     
-            def Hola( nombre='valor por defecto',numero='otro valor por defecto'):
-                return 'El parámetro es : {}  {}'. Format (nombre , numero)	  
-            If __name__ == '_main_':
-                app.run(debug = True , port = 6000)
+        @app.route(‘/Hola/’) 
+        @app.route('/Hola/&lt;nombre&gt;/')     
+        @app.route('/Hola/&lt;nombre&gt;/&lt;apellido&gt;')     
+        def Hola( nombre='valor por defecto',numero='otro valor por defecto'):
+            return 'El parámetro es : {}  {}'. Format (nombre , numero)	  
+        If __name__ == '_main_':
+            app.run(debug = True , port = 6000)
     
             </code></pre>
         
@@ -323,7 +323,7 @@
                     &lt;H4&gt;Hola mundo&lt;/H4&gt;
                 &lt;/BODY&gt;
             &lt;/HTMl&gt;
-            </code></pre>      
+        </code></pre>      
         <p>
         Y ahora para poder llamar este archivo HTML desde nuestra servidor hay que indicarlo en la ruta, pero primero deberemos importa una librería de flask que nos renderise la página tras cada llamada, esto se logra con la librería ‘render_template’ y dentro del método modificamos el return indicando por medio de la librería render_template() el nombre de nuestro archivo HTML. En este caso index.HTML
         </p>
@@ -343,8 +343,8 @@
         Esto ordena al programa buscar el archive index.HTML dentro de la carpeta por defecto ‘ templates’ y renderizarla en nuestro navegador . si por algún motivo necesitáramos cambiar el nombre donde se alojan las paginas, esta se logra indicándole al objeto el nuevo nombre que recibirá la carpeta modificando el objeto instanciado ,
         </p>
         <pre><code>
-            app = Flask(__name__, template_folder ="Nuevo_nombre_de_carpeta") 
-            </code></pre>
+        app = Flask(__name__, template_folder ="Nuevo_nombre_de_carpeta") 
+        </code></pre>
         
         <p>
             Y renombrando la carpeta para que funcionen los cambios.
@@ -362,29 +362,29 @@
        </p>
 
        <pre><code>
-            Import flask from Flask 
-            from flask import render_template
-            app = Flask(__name__)   
+        Import flask from Flask 
+        from flask import render_template
+        app = Flask(__name__)   
                 
-            @app.route('/index/&lt;name&gt;') 
-            def index(name= 'Richardo'):
-                    return render_template(index.html, nombre = name)	  
-                If __name__ == '_main_':
-                    app.run(debug = True , port = 6000)      
+        @app.route('/index/&lt;name&gt;') 
+        def index(name= 'Richardo'):
+            return render_template(index.html, nombre = name)	  
+            If __name__ == '_main_':
+                app.run(debug = True , port = 6000)      
         </code></pre>
         <p>
         Ahora nuestro template recibirá la nueva variable, con el motor jinja2 manejara nuestro template para que pueda ver nuestra nueva variable Jinaja2 usa las dobles llaves de apertura y de cierre para asignar la variables. ‘{{ }}’ , en este caso colocaremos la variable dentro de nuestro template de la siguiente forma.
         </p>
         <pre><code>
-            &lt;HTMl&gt;
-                &lt;HEAD&gt;
-                    &lt;tittle&gt; Prueba flask&lt;/tittle&gt;
-                &lt;/HEAD&gt;
-                &lt;BODY&gt;
-                    &lt;H4&gt;Hola mundo&lt;/H4&gt;
-                    &lt;H4&gt;{{ nombre }}&lt;/H4&gt; <!-- aqui va nuestra nueva variable dentro de {{}}-->
-                &lt;/BODY&gt;
-            &lt;/HTMl&gt;
+        &lt;HTMl&gt;
+            &lt;HEAD&gt;
+                &lt;tittle&gt; Prueba flask&lt;/tittle&gt;
+            &lt;/HEAD&gt;
+            &lt;BODY&gt;
+                &lt;H4&gt;Hola mundo&lt;/H4&gt;
+                &lt;H4&gt;{{ nombre }}&lt;/H4&gt; 
+            &lt;/BODY&gt;
+        &lt;/HTMl&gt;
         </code></pre>
                 
         <p>
@@ -393,10 +393,10 @@
         Cambiado en nuestra función lo siguiente
         </p>
         <pre><code>
-            def index(name= 'Richardo'):
-                edad = 20
-                lista_ejemplo = [1,2,3,4,5,6,7,8,9]
-                return render_template(index.html, name = name ,age = edad, mylis= lista_ejemplo)
+        def index(name= 'Richardo'):
+            edad = 20
+            lista_ejemplo = [1,2,3,4,5,6,7,8,9]
+            return render_template(index.html, name = name ,age = edad, mylis= lista_ejemplo)
             </code></pre>
                 
         <p>
